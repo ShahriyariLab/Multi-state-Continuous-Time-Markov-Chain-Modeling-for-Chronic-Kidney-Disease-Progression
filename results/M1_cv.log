@@ -1,0 +1,51 @@
+Tasks: 50  |  parallel workers: 50
+Loading data...
+  Rows: 335283 | Patients: 21100
+
+Generating 10 stratified 5-fold partitions...
+Repeat 1 fold × initial-stage distribution:
+    InitStage
+Fold    1    2    3    4    5
+   1 1546 1288  880  329  178
+   2 1546 1288  880  329  178
+   3 1546 1288  879  329  178
+   4 1546 1288  879  329  177
+   5 1546 1288  879  329  177
+
+Running 50 tasks across 50 workers...
+Parallel fitting done in 513.1 s (wall clock).
+M1 converged: 50 / 50   |   M0 converged: 50 / 50
+  (repeat=7, fold=3) M1: OK on 'V_init x2' after: gen.inits=TRUE: numerical overflow in calculating likelihood
+ | V_init x1: initial value in 'vmmin' is not finite || M0: OK on 'V_init x2' after: gen.inits=TRUE: numerical overflow in calculating likelihood
+ | V_init x1: initial value in 'vmmin' is not finite
+  (repeat=8, fold=2) M1: OK on 'V_init x2' after: gen.inits=TRUE: numerical overflow in calculating likelihood
+ | V_init x1: initial value in 'vmmin' is not finite || M0: OK on 'V_init x2' after: gen.inits=TRUE: numerical overflow in calculating likelihood
+ | V_init x1: initial value in 'vmmin' is not finite
+  (repeat=9, fold=3) M1: OK on 'V_init x2' after: gen.inits=TRUE: numerical overflow in calculating likelihood
+ | V_init x1: initial value in 'vmmin' is not finite || M0: OK on 'V_init x2' after: gen.inits=TRUE: numerical overflow in calculating likelihood
+ | V_init x1: initial value in 'vmmin' is not finite
+
+Per-task metrics (first 10 rows):
+   repeat_idx fold llpern_m1_train  llpern_m1  llpern_m0
+1           1    1      -0.5645996 -0.5615557 -0.5663440
+2           1    2      -0.5648176 -0.5607278 -0.5656466
+3           1    3      -0.5638139 -0.5647832 -0.5676787
+4           1    4      -0.5638215 -0.5646656 -0.5697370
+5           1    5      -0.5626943 -0.5691640 -0.5737111
+6           2    1      -0.5662485 -0.5550322 -0.5593036
+7           2    2      -0.5611663 -0.5752680 -0.5798018
+8           2    3      -0.5644421 -0.5621377 -0.5664444
+9           2    4      -0.5646514 -0.5613187 -0.5657628
+10          2    5      -0.5632947 -0.5667609 -0.5718210
+
+Loading final model from /home/qiumengli_umass_edu/Projects/CKD/results/M1_msm_hom.rds
+Computing full-data observed and expected prevalences...
+Saved: /home/qiumengli_umass_edu/Projects/CKD/results/M1_cv_metrics.csv  (50 rows + mean/sd)
+Saved: /home/qiumengli_umass_edu/Projects/CKD/results/M1_cv_params.csv  (50 rows + mean/sd + full)
+Plot saved to: /home/qiumengli_umass_edu/Projects/CKD/results/M1_cv_ll.pdf
+  M0 test LL/n: mean = -0.56862, sd = 0.00478 (n = 50)
+  M1 test LL/n: mean = -0.56412, sd = 0.00485 (n = 50)
+Plot saved to: /home/qiumengli_umass_edu/Projects/CKD/results/M1_hr_sex.pdf
+Plot saved to: /home/qiumengli_umass_edu/Projects/CKD/results/M1_hr_htn.pdf
+Plot saved to: /home/qiumengli_umass_edu/Projects/CKD/results/M1_prevalence.pdf
+===== Done =====

@@ -1,0 +1,25 @@
+# Ignore everything by default, then explicitly allow selected folders/files
+/*
+
+# Keep git metadata
+!/.gitignore
+!/.git
+
+# Keep README
+!/README.md
+
+# Allow selected project folders
+!/data_processed/
+!/data_processed/**
+!/results/
+!/results/**
+!/scripts/
+!/scripts/**
+
+# Ignore some common environment and editor files just in case
+*.py[cod]
+__pycache__/
+.venv/
+venv/
+env/
+.DS_Store
