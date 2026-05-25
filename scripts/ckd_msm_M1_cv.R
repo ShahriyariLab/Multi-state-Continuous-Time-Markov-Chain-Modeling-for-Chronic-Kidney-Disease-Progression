@@ -359,6 +359,41 @@ rownames(cv_metrics_df) <- NULL
 cat("\nPer-task metrics (first 10 rows):\n")
 print(head(cv_metrics_df, 10))
 
+# ── Wilcoxon signed-rank test: paired M1 vs M0 held-out LL/n ──────────────────
+m1_vals <- cv_metrics_df$llpern_m1
+m0_vals <- cv_metrics_df$llpern_m0
+paired_ok <- is.finite(m1_vals) & is.finite(m0_vals)
+m1_paired <- m1_vals[paired_ok]
+m0_paired <- m0_vals[paired_ok]
+n_paired  <- length(m1_paired)
+n_m1_gt   <- sum(m1_paired > m0_paired)
+
+w_one <- wilcox.test(m1_paired, m0_paired, paired = TRUE,
+                     alternative = "greater",   exact = FALSE)
+w_two <- wilcox.test(m1_paired, m0_paired, paired = TRUE,
+                     alternative = "two.sided", exact = FALSE)
+
+cat("\n=== Wilcoxon signed-rank test (paired): M1 vs M0 held-out LL/n ===\n")
+cat(sprintf("  Paired observations:   %d / %d\n", n_paired, length(m1_vals)))
+cat(sprintf("  M1 > M0:               %d / %d splits\n", n_m1_gt, n_paired))
+cat(sprintf("  One-sided (H1: M1>M0): V = %g, p = %.3g\n",
+            w_one$statistic, w_one$p.value))
+cat(sprintf("  Two-sided:             V = %g, p = %.3g\n",
+            w_two$statistic, w_two$p.value))
+
+signedrank_df <- data.frame(
+  n_splits       = n_paired,
+  n_m1_greater   = n_m1_gt,
+  V              = unname(w_one$statistic),
+  p_one_sided    = w_one$p.value,
+  p_two_sided    = w_two$p.value
+)
+write.csv(signedrank_df,
+          file.path(out_dir, "M1_cv_signedrank.csv"),
+          row.names = FALSE)
+cat(sprintf("Saved: %s\n",
+            file.path(out_dir, "M1_cv_signedrank.csv")))
+
 cv_params_list <- lapply(results, function(x) {
   if (is.null(x$params)) return(NULL)
   c(repeat_idx = x$repeat_idx, fold = x$fold, x$params)
