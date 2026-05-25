@@ -69,5 +69,4 @@ Rscript scripts/ckd_msm_M1_sensitivity.R
 ## Notes
 
 - This repository only tracks `data_processed/`, `results/`, and `scripts/`.
-- The manuscript source file `BMB/BMB.tex` is not uploaded to this repository.
 - The `results/` folder may contain additional output files produced by running the scripts.
