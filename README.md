@@ -36,9 +36,6 @@ The core manuscript in `BMB/BMB.tex` develops a unified CTMC framework for CKD s
     - `scripts/ckd_msm_M1_sensitivity.R`
     - `scripts/run_ckd_msm_M1_cv.sh`
     - `scripts/run_ckd_msm_M1_cv_small.sh`
-- `BMB/`
-  - LaTeX manuscript source and compiled output for the CKD CTMC model paper.
-  - Includes `BMB.tex`, bibliography, figures, and the compiled `BMB.pdf`.
 
 ## How to use
 
