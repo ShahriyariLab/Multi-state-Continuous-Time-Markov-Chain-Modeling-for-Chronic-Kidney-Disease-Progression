@@ -34,6 +34,13 @@ The model uses CKD stages 1–5 plus death, with transitions only to the next st
     - `scripts/run_ckd_msm_M1_cv.sh`
     - `scripts/run_ckd_msm_M1_cv_small.sh`
 
+## Data generation
+
+- Synthetic data are generated using Synthea.
+- If you want to regenerate the raw data yourself, use the Synthea project at https://github.com/synthetichealth/synthea.
+- After generating raw Synthea output, run `python3 scripts/preprocess.py` to produce the processed files used by this repository.
+- If you do not want to generate your own data, use the already processed data in `data_processed/`.
+
 ## How to use
 
 1. Clone the repository:
