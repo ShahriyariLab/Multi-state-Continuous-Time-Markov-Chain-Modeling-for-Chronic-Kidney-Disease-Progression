@@ -529,7 +529,7 @@ state_names  <- c("Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Death")
        pos = 3, offset = 0.3, cex = 0.8, col = "grey25")
 
   legend("bottomright",
-         legend = c("M0 split", "M1 split", "M0 mean", "M1 mean"),
+         legend = c("M0 (per split)", "M1 (per split)", "M0 (mean)", "M1 (mean)"),
          pch    = c(21, 21, 23, 23),
          pt.bg  = c(adjustcolor(box_col[1], 0.55),
                     adjustcolor(box_col[2], 0.55),
