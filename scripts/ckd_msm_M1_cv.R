@@ -529,14 +529,15 @@ state_names  <- c("Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Death")
        pos = 3, offset = 0.3, cex = 0.8, col = "grey25")
 
   legend("bottomright",
-         legend = c(sprintf("%d test LL/n (%d × %d-fold)",
-                            n_splits, N_REPEATS, N_FOLDS),
-                    "Mean"),
-         pch = c(21, 23),
-         pt.bg = c(adjustcolor("grey60", 0.55), "white"),
-         col   = c("grey40", "black"),
-         pt.cex = c(0.9, 1.4),
-         bty = "n", cex = 0.82)
+         legend = c("M0 split", "M1 split", "M0 mean", "M1 mean"),
+         pch    = c(21, 21, 23, 23),
+         pt.bg  = c(adjustcolor(box_col[1], 0.55),
+                    adjustcolor(box_col[2], 0.55),
+                    "white", "white"),
+         col    = c(box_col[1], box_col[2], box_col[1], box_col[2]),
+         pt.cex = c(0.85, 0.85, 1.4, 1.4),
+         pt.lwd = c(1, 1, 1.8, 1.8),
+         bty = "n", cex = 0.80)
 
   dev.off()
   cat(sprintf("Plot saved to: %s\n", ll_plot_path))
